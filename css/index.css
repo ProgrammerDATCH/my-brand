@@ -1,0 +1,151 @@
+:root{
+    --bg-color: #000000;
+    --text-color: #fff;
+    --text-grey: grey;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* NavBar Section */
+nav{
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+nav ul{
+    list-style-type: none;
+    display: flex;
+    gap: 50px;
+}
+
+
+nav ul li a{
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: large;
+}
+
+nav ul li a:hover{
+    text-decoration: underline;
+}
+
+nav ul li .active{
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+
+
+/* Container Section */
+.container{
+    margin: 0 80px;
+    height: 80vh;
+}
+
+.hero{
+    display: flex;
+    justify-content: space-between;
+    height: 60%;
+}
+
+.profile-img{
+    width: 200px;
+    rotate: 25deg;
+    border-radius:50%;
+    box-shadow: 0 6px 4px var(--bg-color);
+}
+
+.left-hero{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.left-hero p{
+    font-size: 30px;
+}
+
+.left-hero .cards{
+    display: flex;
+    gap: 10px;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.card-bg{
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 150px;
+    box-shadow: 0 5px 15px var(--bg-color);
+}
+
+
+
+.main{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.contents{
+    background-color: var(--text-grey);
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.contents p{
+    margin-bottom: 20px;;
+}
+
+
+
+
+
+
+
+
+/* Footer Section */
+
+footer{
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 10px;
+    height: 15vh;
+}
+
+.social-medias{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.copyright{
+    text-align: center;margin-top: 10px;
+}
+
+.icons{
+    display: flex;
+    gap: 10px;
+}
+
+.icons img{
+    width: 25px;
+}
