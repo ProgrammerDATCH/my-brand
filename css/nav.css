@@ -1,0 +1,92 @@
+:root{
+    --bg-color: #000000;
+    --text-color: #fff;
+    --text-grey: grey;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 90px;
+}
+
+nav ul{
+    list-style-type: none;
+    display: flex;
+    gap: 50px;
+}
+
+
+nav ul li a{
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: large;
+}
+
+nav ul li a:hover{
+    text-decoration: underline;
+}
+
+nav ul li .active{
+    font-weight: bolder;
+    text-decoration: underline;
+}
+#menu-toggle{
+    display: none;
+}
+#menu-btn{
+    display: none;
+    font-size: 30px;
+}
+.all-menu{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 20px;
+    position: relative;
+}
+
+
+
+
+
+@media only screen and (max-width: 768px){
+    /*Phone*/
+    .menu{
+        display: none;
+    }
+    #menu-btn{
+        display: block;
+    }
+    #menu-toggle:checked ~ .menu{
+        display: flex;
+    }
+
+    #menu-btn::before {
+        content: "\2630";
+    }
+    #menu-toggle:checked + #menu-btn::before {
+        content: "\2716";
+    }
+    .menu{
+        position: absolute;
+        top: 65px;
+        background-color: var(--bg-color);
+        padding: 50px;
+        flex-direction: column;
+        gap: 15px;
+        border-radius: 20px;
+        box-shadow: 5px 5px 1000px var(--bg-color);
+        z-index: 2;
+    }
+    .menu li a{
+        color: var(--text-color);
+    }
+}

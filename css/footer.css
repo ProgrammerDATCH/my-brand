@@ -1,0 +1,23 @@
+footer{
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 10px;
+}
+
+.social-medias{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.copyright{
+    text-align: center;margin-top: 10px;
+}
+
+.icons{
+    display: flex;
+    gap: 10px;
+}
+
+.icons img{
+    width: 25px;
+}
