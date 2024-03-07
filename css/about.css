@@ -2,52 +2,52 @@
 
 @import url('footer.css');
 
-.container{
+.container {
     padding: 20px;
 }
 
-.intro{
+.intro {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.intro-words{
+.intro-words {
     display: flex;
     flex-direction: column;
     gap: 25px;
     padding: 20px;
 }
 
-.intro-words-me p{
+.intro-words-me p {
     margin-left: 20px;
 }
 
-.skills-container{
+.skills-container {
     margin-left: 20px;
     background-color: var(--text-grey);
     padding: 30px 60px;
     border-radius: 30px;
 }
 
-.profile-pic-div{
-    width: 1000px;
+.profile-pic-div {
+    width: 80%;
 }
 
-.profile-pic-div img{
+.profile-pic-div img {
     width: 100%;
     rotate: 25deg;
-    border-radius:50%;
+    border-radius: 50%;
     box-shadow: 0 6px 4px var(--bg-color);
 }
 
-.projects{
+.projects {
     display: flex;
     overflow-x: scroll;
     gap: 50px;
 }
 
-.project-card{
+.project-card {
     background-color: var(--text-grey);
     box-shadow: 0 6px 4px var(--bg-color);
     border-radius: 40px;
@@ -55,24 +55,24 @@
     margin-bottom: 20px;
 }
 
-.project-card img{
+.project-card img {
     width: 200px;
 }
 
-.project-desc p{
+.project-desc p {
     margin-left: 15px;
     margin-top: 8px;
 }
 
-.hire-me{
+.hire-me {
     margin-bottom: 30px;
 }
 
-.hire-me p{
+.hire-me p {
     margin-left: 20px;
 }
 
-.contact-me-btn{
+.contact-me-btn {
     background-color: var(--bg-color);
     color: var(--text-color);
     height: 30px;
@@ -84,12 +84,30 @@
 
 
 /* RESPONSIVENESS */
-@media only screen and (max-width: 1024px){
+@media only screen and (max-width: 1024px) {
     /*tablet*/
-   
+    .profile-pic-div {
+        width: 70%;
+    }
 }
 
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 768px) {
+
     /*Phone*/
-    
+    .intro {
+        flex-direction: column-reverse;
+        width: 90%;
+    }
+
+    .profile-pic-div {
+        width: 50%;
+    }
+
+    .projects {
+        gap: 20px;
+    }
+
+    .project-card img {
+        width: 150px;
+    }
 }
