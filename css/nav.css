@@ -1,6 +1,7 @@
 :root{
     --bg-color: #000000;
     --text-color: #fff;
+    --bg-middle: rgba(0,0,0, 0.3);
     --text-grey: grey;
 }
 
