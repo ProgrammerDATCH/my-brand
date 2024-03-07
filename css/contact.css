@@ -56,11 +56,19 @@ form{
 /* RESPONSIVENESS */
 @media only screen and (max-width: 1024px) {
     /*tablet*/
-   
+    .contact-section{
+        flex-direction: column;
+        align-items: center;
+        gap: 80px;
+    }
 }
 
 @media only screen and (max-width: 768px) {
-
     /*Phone*/
+    .contact-section{
+        flex-direction: column;
+        align-items: center;
+        gap: 80px;
+    }
     
 }
