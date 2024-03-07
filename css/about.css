@@ -21,6 +21,7 @@
 
 .intro-words-me p {
     margin-left: 20px;
+    max-width: 70%;
 }
 
 .skills-container {
@@ -28,14 +29,15 @@
     background-color: var(--text-grey);
     padding: 30px 60px;
     border-radius: 30px;
+    max-width: 300px;
 }
 
 .profile-pic-div {
-    width: 80%;
+    width: 1500px;
 }
 
 .profile-pic-div img {
-    width: 100%;
+    width: 80%;
     rotate: 25deg;
     border-radius: 50%;
     box-shadow: 0 6px 4px var(--bg-color);
@@ -56,7 +58,7 @@
 }
 
 .project-card img {
-    width: 200px;
+    width: 350px;
 }
 
 .project-desc p {
@@ -65,7 +67,7 @@
 }
 
 .hire-me {
-    margin-bottom: 30px;
+    margin: 40px 0;
 }
 
 .hire-me p {
@@ -87,8 +89,12 @@
 @media only screen and (max-width: 1024px) {
     /*tablet*/
     .profile-pic-div {
-        width: 70%;
+        width: 1200px;
     }
+    .project-card img {
+        width: 250px;
+    }
+    
 }
 
 @media only screen and (max-width: 768px) {
@@ -97,10 +103,12 @@
     .intro {
         flex-direction: column-reverse;
         width: 90%;
+        align-items: center;
     }
 
     .profile-pic-div {
-        width: 50%;
+        width: 300px;
+        margin-left: 100px;
     }
 
     .projects {
@@ -109,5 +117,8 @@
 
     .project-card img {
         width: 150px;
+    }
+    .intro-words-me p{
+        max-width: 90%;
     }
 }

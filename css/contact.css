@@ -4,6 +4,7 @@
 
 .container {
     padding: 20px;
+    min-height: 75vh;
 }
 
 h1{
