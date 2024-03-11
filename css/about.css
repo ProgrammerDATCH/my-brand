@@ -10,26 +10,68 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 8px;
+    box-shadow: 0 0 10px var(--bg-middle);
+    border-radius: 12px;
+}
+
+.projects{
+    max-width: 95%;
+}
+
+.hire-me{
+    padding: 8px;
+    box-shadow: 0 0 10px var(--bg-middle);
+    border-radius: 12px;
 }
 
 .intro-words {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 2px;
     padding: 20px;
 }
 
 .intro-words-me p {
     margin-left: 20px;
     max-width: 70%;
+    font-size: 1.6rem;
+}
+.intro-words-me p::first-letter{
+    font-size: 36px;
+    color: var(--shine-color);
+}
+ h3{
+    color: var(--shine-color);
+    font-size: 40px;
 }
 
-.skills-container {
+.skills-container, .projects, .hire-me p {
     margin-left: 20px;
-    background-color: var(--text-grey);
-    padding: 30px 60px;
-    border-radius: 30px;
-    max-width: 300px;
+}
+.my-skills{
+    list-style-type: none;
+    display: flex;
+    overflow: auto;
+    width: 100%;
+
+}
+
+.skills-name{
+    border: 2px solid var(--shine-color);
+    width: fit-content;
+    padding: 5px 20px;
+    margin: 5px;
+    border-radius: 24px;
+    color: var(--shine-color);
+    cursor: pointer;
+    font-size: 24px;
+
+}
+.skills-name:hover{
+    background: var(--shine-color);
+    color: var(--text-color);
+    font: bold;
 }
 
 .profile-pic-div {
@@ -38,32 +80,39 @@
 
 .profile-pic-div img {
     width: 80%;
-    rotate: 25deg;
-    border-radius: 50%;
-    box-shadow: 0 6px 4px var(--bg-color);
 }
 
 .projects {
     display: flex;
     overflow-x: scroll;
     gap: 50px;
+    padding: 10px ;
 }
 
 .project-card {
-    background-color: var(--text-grey);
-    box-shadow: 0 6px 4px var(--bg-color);
-    border-radius: 40px;
+    box-shadow:0px 0px 10px var(--shine-color) ;
+    /* box-shadow: 0 6px 4px var(--bg-color); */
+    border-radius: 20px;
     padding: 30px;
     margin-bottom: 20px;
+    position: relative;
 }
 
 .project-card img {
-    width: 350px;
+    width: 200px;
 }
-
+.project-card img:hover{
+    width:220px;
+}
+.project-desc h6{
+    font: bold;
+    font-size: 24px;
+    color: var(--shine-color);
+}
 .project-desc p {
     margin-left: 15px;
     margin-top: 8px;
+    font-size: 20px;
 }
 
 .hire-me {
@@ -72,15 +121,24 @@
 
 .hire-me p {
     margin-left: 20px;
+    font-size: 24px;
 }
 
 .contact-me-btn {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    height: 30px;
-    border-radius: 10px;
-    padding: 5px;
-    box-shadow: 0 6px 4px var(--bg-color);
+ padding: 8px 20px;
+ background-color: var(--shine-color);
+ border: none;
+ color: var(--text-color);
+ font-size: 24px;
+ border-radius: 10px;
+ cursor: pointer;
+   
+}
+.contact-me-btn:hover{
+    box-shadow: 0px 0px 10px var(--shine-color);
+    color: var(--shine-color);
+    background: var(--text-color);
+    /* text-decoration: underline; */
 }
 
 
@@ -88,37 +146,82 @@
 /* RESPONSIVENESS */
 @media only screen and (max-width: 1024px) {
     /*tablet*/
-    .profile-pic-div {
-        width: 1200px;
-    }
-    .project-card img {
-        width: 250px;
+    .intro {
+        flex-wrap: wrap-reverse;
+        width: 100%;
+        align-items: center;
+        gap: 0;
+        
     }
     
+    .profile-pic-div {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .intro-words {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    h3{
+        margin-top: 35px;
+        margin-bottom: 5px;
+        font-size: 30px;
+    }
+    
+   .my-skills{
+    display: flex;
+    flex-wrap: wrap;
+   }
+
+    .intro-words-me h3{
+        font-size: 26px;
+    }
+
+    .intro-words-me p{
+        width: 100%;
+        font-size: 18px;
+        margin-left: 20px;
+    }
+    
+    .projects {
+        gap: 20px;
+        width: 100%;
+        display: flex;
+    }
+
+    .project-card{
+        width: 100%;
+    }
+    .project-card img {
+        width: 200px;
+    }
 }
 
 @media only screen and (max-width: 768px) {
 
     /*Phone*/
-    .intro {
-        flex-direction: column-reverse;
-        width: 90%;
-        align-items: center;
-    }
-
     .profile-pic-div {
-        width: 300px;
-        margin-left: 100px;
+        width: 100%;
     }
-
+    h3{
+        margin-top: 15px;
+        font-size: 26px;
+    }
+    .intro-words-me p{
+        font-size: 14px;
+    }
+    
     .projects {
-        gap: 20px;
+        gap: 15px;
     }
-
     .project-card img {
         width: 150px;
     }
     .intro-words-me p{
-        max-width: 90%;
+        max-width: 100%;
     }
+    
 }
