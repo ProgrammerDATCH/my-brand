@@ -33,23 +33,26 @@
         <div class="contact-section">
             <div class="contact-form">
                 <p>Send me a message or an inquiry:</p>
-                <form>
+                <form id="contactForm">
                     <table>
                         <tr>
                             <td>Names</td>
-                            <td><input type="text" name="names" placeholder="Enter your name"/></td>
+                            <td><input type="text" id="nameInput" placeholder="Enter your name"/></td>
                         </tr>
                         <tr>
                             <td>Email</td>
-                            <td><input type="email" name="email" placeholder="Enter your email"/></td>
+                            <td><input type="email" id="emailInput" placeholder="Enter your email"/></td>
                         </tr>
                         <tr>
                             <td>Subject</td>
-                            <td><input type="text" name="subject" placeholder="Enter your subject"/></td>
+                            <td><input type="text" id="subjectInput" placeholder="Enter your subject"/></td>
                         </tr>
                         <tr>
                             <td>Message</td>
-                            <td><textarea name="message" placeholder="Enter your message"></textarea></td>
+                            <td><textarea id="messageInput" placeholder="Enter your message"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><span id="errorSpan"></span></td>
                         </tr>
                         <tr>
                             <td colspan="2" class="for-submit">
@@ -91,6 +94,7 @@
         </div>
     </footer>
 
+    <script src="js/validateForm.js"></script>
 </body>
 
 </html>

@@ -87,6 +87,22 @@ form{
         width: 50%;
         animation: earth-rotation 10s linear infinite;
     }
+
+    .failed{
+        color: red;
+        font-size: small;
+    }
+    .success{
+        color: green;
+        font-size: large;
+    }
+
+    /* #errorSpan{
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px var(--bg-middle);
+    } */
+
     @keyframes earth-rotation{
         from{
             transform: rotate(0deg);
