@@ -77,7 +77,7 @@ nav ul li .active{
     min-height: 90vh;
     max-width: 100%;
     overflow-x: hidden;
-    margin-top: 65px;
+    margin-top: 70px;
 }
 
 
@@ -112,5 +112,9 @@ nav ul li .active{
     }
     .menu li a{
         color: var(--text-color);
+    }
+
+    .container{
+        margin-top: 80px;
     }
 }
