@@ -8,19 +8,21 @@ const errorSpan = document.getElementById('errorSpan');
 
 contactForm.addEventListener("submit", (e)=>handleSend(e))
 
+const allContactsData = [];
 
 function handleSend(e){
     e.preventDefault();
     let errorOccured = false;
     let allErrors = [];
-    if(nameInput.value.length < 4){
+    const nameRegex = /^[a-zA-Z]{5,}$/;
+    if(!nameRegex.test(nameInput.value)){
         errorOccured = true;
-        allErrors.push("Please use real name!")
+        allErrors.push("Please use real name.")
     }
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const emailRegex = /^[a-zA-Z0-9._]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if(!emailRegex.test(emailInput.value)){
         errorOccured = true;
-        allErrors.push("Email should have '@' and '.'.")
+        allErrors.push("Please use real email.")
     }
     if(subjectInput.value.length < 10){
         errorOccured = true;
@@ -44,5 +46,14 @@ function handleSend(e){
         errorSpan.appendChild(ul)
         return;
     }
-    errorSpan.innerHTML = '<span class="success">Message SENT!</span>'
+
+    const newContactData = {
+        name: nameInput.value,
+        email: emailInput.value,
+        subject: subjectInput.value,
+        message: messageInput.value
+    }
+    allContactsData.push(newContactData)
+    console.log(allContactsData)
+    errorSpan.innerHTML = '<span class="success">Message Sent!</span>'
 }

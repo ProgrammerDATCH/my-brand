@@ -30,7 +30,7 @@ input, textarea{
     width: 100%;
 }
 textarea{
-    height: 60px;
+    height: 80px;
 }
 input::placeholder, textarea::placeholder{
     color: var(--text-grey);
@@ -97,11 +97,7 @@ form{
         font-size: large;
     }
 
-    /* #errorSpan{
-        padding: 10px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px var(--bg-middle);
-    } */
+
 
     @keyframes earth-rotation{
         from{
@@ -116,6 +112,9 @@ form{
     /*PC*/
     *{
         font-size: 27px;
+    }
+    input, textarea{
+        font-size: 22px;
     }
     .contact-section{
         display: flex;
