@@ -2,6 +2,8 @@
     --bg-color: #000000ce;
     --text-color: #fff;
     --shine-color: #134074;
+    --shine-trans-color: #134074ce;
+    --shine-color: #134074;
     --bg-middle: rgba(0,0,0, 0.3);
     --text-grey: grey;
 }
@@ -16,7 +18,7 @@
 }
 
 nav{
-    background-color: var(--bg-color ,);
+    background-color: var(--shine-trans-color);
     color: var(--text-color);
     display: flex;
     justify-content: space-between;
@@ -39,8 +41,9 @@ nav ul{
     list-style-type: none;
     display: flex;
     gap: 90px;
+    padding: 10px;
+    padding-right: 30px;
 }
-
 
 nav ul li a{
     text-decoration: none;
@@ -56,8 +59,28 @@ nav ul li a:hover{
 
 nav ul li .active{
     font-weight: bolder;
-    text-decoration: underline;
+    color: var(--text-color);
+    position: relative;
 }
+
+nav ul li .active{
+    background-color: var(--text-color);
+    color: var(--shine-color);
+    position: relative;
+}
+nav ul li a.active::after {
+    content: '';
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    position: absolute;
+    top: -10px;
+    left: -20px;
+    right: 0px;
+    width: 200%;
+    height: 65px;
+    z-index: -1;
+}
+
 #menu-toggle{
     display: none;
 }
@@ -77,7 +100,7 @@ nav ul li .active{
     min-height: 90vh;
     max-width: 100%;
     overflow-x: hidden;
-    margin-top: 70px;
+    margin-top: 90px;
 }
 
 
@@ -102,12 +125,12 @@ nav ul li .active{
     .menu{
         position: absolute;
         top: 65px;
-        background-color: var(--bg-color);
+        background-color: var(--shine-trans-color);
         padding: 50px;
         flex-direction: column;
         gap: 15px;
         border-radius: 20px;
-        box-shadow: 5px 5px 1000px var(--bg-color);
+        box-shadow: 5px 5px 1000px var(--shine-color);
         z-index: 2;
     }
     .menu li a{
@@ -116,5 +139,17 @@ nav ul li .active{
 
     .container{
         margin-top: 80px;
+    }
+   
+    nav ul li .active{
+        font-weight: bolder;
+        text-decoration: underline;
+        color: var(--text-color);
+        background-color: transparent;
+        position: relative;
+    }
+    nav ul li a.active::after{
+        content: '';
+        display: none;
     }
 }

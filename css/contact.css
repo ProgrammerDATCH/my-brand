@@ -36,14 +36,19 @@ input::placeholder, textarea::placeholder{
     color: var(--text-grey);
 }
 td button{
-    background-color: var(--bg-color);
+    background-color: var(--shine-color);
     color: var(--text-color);
     padding: 10px 30px;
     border-radius: 30px;
     width: 180px;
     height: 50px;
     font-size: 25px;
-    box-shadow: 2px 3px 4px var(--text-grey);
+    border: none;
+}
+td button:hover{
+    background-color: var(--bg-grey);
+    color: var(--shine-color);
+    box-shadow: 0px 0px 6px var(--shine-color);
 }
 
 form{

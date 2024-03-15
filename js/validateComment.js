@@ -1,14 +1,13 @@
-const contactForm = document.getElementById('contactForm');
+const commentForm = document.getElementById('commentForm');
 const nameInput = document.getElementById('nameInput');
 const emailInput = document.getElementById('emailInput');
-const subjectInput = document.getElementById('subjectInput');
-const messageInput = document.getElementById('messageInput');
+const commentInput = document.getElementById('commentInput');
 const errorSpan = document.getElementById('errorSpan');
 
 
-contactForm.addEventListener("submit", (e)=>handleSend(e))
+commentForm.addEventListener("submit", (e)=>handleSend(e))
 
-const allContactsData = [];
+const allCommentsData = [];
 
 function handleSend(e){
     e.preventDefault();
@@ -24,13 +23,9 @@ function handleSend(e){
         errorOccured = true;
         allErrors.push("Please use real email.")
     }
-    if(subjectInput.value.length < 10){
+    if(commentInput.value.length < 20){
         errorOccured = true;
-        allErrors.push("Subject is shorter than 10 characters.")
-    }
-    if(messageInput.value.length < 20){
-        errorOccured = true;
-        allErrors.push("Message is shorter than 20 characters.")
+        allErrors.push("Comment is shorter than 20 characters.")
     }
 
     if(errorOccured){
@@ -47,17 +42,15 @@ function handleSend(e){
         return;
     }
 
-    const newContactData = {
+    const newCommentData = {
         name: nameInput.value,
         email: emailInput.value,
-        subject: subjectInput.value,
-        message: messageInput.value
+        comment: commentInput.value
     }
-    allContactsData.push(newContactData)
-    console.log(allContactsData)
-    errorSpan.innerHTML = '<span class="success">Message Sent!</span>'
+    allCommentsData.push(newCommentData)
+    console.log(allCommentsData)
+    errorSpan.innerHTML = '<span class="success">Comment published.</span>'
     nameInput.value = ""
     emailInput.value = ""
-    subjectInput.value = ""
-    messageInput.value = ""
+    commentInput.value = ""
 }

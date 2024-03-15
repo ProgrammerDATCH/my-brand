@@ -20,7 +20,7 @@
 }
 
 .hire-me{
-    padding: 8px;
+    padding: 20px;
     box-shadow: 0 0 10px var(--bg-middle);
     border-radius: 12px;
 }
@@ -28,14 +28,14 @@
 .intro-words {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 20px;
     padding: 20px;
 }
 
 .intro-words-me p {
     margin-left: 20px;
     max-width: 70%;
-    font-size: 1.6rem;
+    font-size: 15px;
 }
 .intro-words-me p::first-letter{
     font-size: 36px;
@@ -121,7 +121,7 @@
 
 .hire-me p {
     margin-left: 20px;
-    font-size: 24px;
+    font-size: 18px;
 }
 
 .contact-me-btn {
@@ -141,6 +141,9 @@
     /* text-decoration: underline; */
 }
 
+.project-header{
+    margin-top: 50px;
+}
 
 
 /* RESPONSIVENESS */
@@ -222,6 +225,9 @@
     }
     .intro-words-me p{
         max-width: 100%;
+    }
+    .hire-me p a{
+        display: block;
     }
     
 }
