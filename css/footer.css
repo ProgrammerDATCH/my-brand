@@ -1,5 +1,5 @@
 footer{
-    background-color: var(--bg-color);
+    background-color: var(--shine-color);
     color: var(--text-color);
     width: 100%;
 }
@@ -7,7 +7,6 @@ footer{
 .social-medias{
     display: flex;
     justify-content: space-evenly;
-    /* align-items: flex-end; */
     align-items: center;
 }
 
