@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David - Register</title>
+    <link rel="stylesheet" href="css/register.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            <h2>David</h2>
+        </div>
+
+        <div class="all-menu">
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" id="menu-btn"></label>
+
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="registerContainer">
+            <h1>Register</h1>
+
+            <form id="registerForm">
+                <table>
+                    <tr>
+                        <td>Names:</td>
+                        <td><input type="text" id="nameInput" placeholder="Enter your full names"/></td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td><input type="email" id="emailInput" placeholder="Enter your Email"/></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type="password" id="passwordInput" placeholder="Enter your Password" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="errorPassword"><span id="errorPassword"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Repeat Password:</td>
+                        <td><input type="password" id="passwordRepeatInput" placeholder="Confirm Password" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><span id="errorSpan"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="for-submit">
+                            <button type="submit">Register</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="bottom-td">Already got an account? <a href="login.html">Login</a> </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="social-medias">
+            <h4>Follow Me</h4>
+            <div class="icons">
+                <img src="images/white ig.png" alt="ig">
+                <img src="images/white x.png" alt="ig">
+                <img src="images/white fb.png" alt="ig">
+                <img src="images/white tsap.png" alt="ig">
+            </div>
+        </div>
+        <div class="copyright">
+            David 2024
+        </div>
+    </footer>
+
+    <script src="js/validateRegister.js"></script>
+    <script src="js/common.js"></script>
+</body>
+
+</html>

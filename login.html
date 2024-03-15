@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David - Login</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            <h2>David</h2>
+        </div>
+
+        <div class="all-menu">
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" id="menu-btn"></label>
+
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="#" class="active">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="loginContainer">
+            <h1>Login</h1>
+
+            <form id="loginForm">
+                <table>
+                    <tr>
+                        <td>Email:</td>
+                        <td><input type="email" id="emailInput" placeholder="Enter your Email" /></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type="password" id="loginPasswordInput" placeholder="Enter your Password" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><span id="errorSpan"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="for-submit">
+                            <button type="submit">Login</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="bottom-td">No account yet? <a href="register.html">Register</a> </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+
+    </div>
+
+    <footer>
+        <div class="social-medias">
+            <h4>Follow Me</h4>
+            <div class="icons">
+                <img src="images/white ig.png" alt="ig">
+                <img src="images/white x.png" alt="ig">
+                <img src="images/white fb.png" alt="ig">
+                <img src="images/white tsap.png" alt="ig">
+            </div>
+        </div>
+        <div class="copyright">
+            David 2024
+        </div>
+    </footer>
+
+    <script src="js/validateLogin.js"></script>
+    <script src="js/common.js"></script>
+</body>
+
+</html>

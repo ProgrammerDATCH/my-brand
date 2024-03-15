@@ -40,7 +40,7 @@ nav{
 nav ul{
     list-style-type: none;
     display: flex;
-    gap: 90px;
+    gap: 50px;
     padding: 10px;
     padding-right: 30px;
 }
@@ -95,12 +95,44 @@ nav ul li a.active::after {
     position: relative;
 }
 
+/* common css */
+.failed{
+    color: red;
+    font-size: small;
+}
+.success{
+    color: green;
+    font-size: large;
+}
+#errorSpan{
+    margin-left: 30px;
+}
+
+#errorSpan ul{
+    margin-left: 30px;
+}
+.invalid{
+    outline: 2px solid red;
+}
+.valid{
+    outline: 2px solid green;
+}
+
+table{
+    width: 100%;
+}
+tr td:nth-child(2){
+    width: 75%;
+}
 
 .container{
     min-height: 90vh;
     max-width: 100%;
     overflow-x: hidden;
     margin-top: 90px;
+}
+textarea:focus, input:focus:not(#passwordInput):not(#passwordRepeatInput) {
+    outline: 2px solid var(--shine-color);
 }
 
 
@@ -153,3 +185,4 @@ nav ul li a.active::after {
         display: none;
     }
 }
+
