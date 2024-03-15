@@ -17,15 +17,18 @@ function handleSend(e){
     if(!nameRegex.test(nameInput.value)){
         errorOccured = true;
         allErrors.push("Please use real name.")
+        nameInput.classList.add("invalid")
     }
     const emailRegex = /^[a-zA-Z0-9._]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if(!emailRegex.test(emailInput.value)){
         errorOccured = true;
         allErrors.push("Please use real email.")
+        emailInput.classList.add("invalid")
     }
     if(commentInput.value.length < 20){
         errorOccured = true;
         allErrors.push("Comment is shorter than 20 characters.")
+        commentInput.classList.add("invalid")
     }
 
     if(errorOccured){
