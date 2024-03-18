@@ -134,6 +134,21 @@ tr td:nth-child(2){
 textarea:focus, input:focus:not(#passwordInput):not(#passwordRepeatInput) {
     outline: 2px solid var(--shine-color);
 }
+#emailInput {
+    position: relative;
+}
+
+
+.error-message-td{
+    padding-bottom: 15px;
+}
+.error-message-td .error-message{
+    margin-left: 20px;
+}
+.error-message {
+    color: red;
+    font-size: 13px;
+}
 
 
 @media only screen and (max-width: 768px){

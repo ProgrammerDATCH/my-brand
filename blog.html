@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/profile.png" type="image/x-icon">
     <title>David - MyBrand</title>
     <link rel="stylesheet" href="css/blog.css">
 </head>
@@ -171,13 +172,25 @@
                                     <td>Names</td>
                                     <td><input type="text" id="nameInput" placeholder="Enter your name" /></td>
                                 </tr>
+                                <tr class="error-tr">
+                                    <td></td>
+                                    <td  class="error-message-td"><span class="error-message" id="nameError"></span></td>
+                                </tr>
                                 <tr>
                                     <td>Email</td>
                                     <td><input type="email" id="emailInput" placeholder="Enter your email" /></td>
                                 </tr>
+                                <tr class="error-tr">
+                                    <td></td>
+                                    <td  class="error-message-td"><span class="error-message" id="emailError"></span></td>
+                                </tr>
                                 <tr>
                                     <td>Comment</td>
                                     <td><textarea id="commentInput" placeholder="Enter your comment"></textarea></td>
+                                </tr>
+                                <tr class="error-tr">
+                                    <td></td>
+                                    <td  class="error-message-td"><span class="error-message" id="commentError"></span></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2"><span id="errorSpan"></span></td>

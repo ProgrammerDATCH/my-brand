@@ -27,9 +27,6 @@ form{
     border-radius: 10px;
     width: 100%;
 }
-td{
-    padding: 10px 2px;
-}
 .for-submit, .bottom-td{
     text-align: center;
 }
