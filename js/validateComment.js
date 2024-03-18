@@ -15,6 +15,7 @@ const allCommentsData = [];
 
 function handleSend(e){
     e.preventDefault();
+    errorSpan.innerText = ""
     let errorOccured = false;
     resetAllErrors();
     const nameRegex = /^[a-zA-Z]{5,}$/;

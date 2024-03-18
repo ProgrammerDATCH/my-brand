@@ -17,6 +17,7 @@ const allContactsData = [];
 
 function handleSend(e){
     e.preventDefault();
+    errorSpan.innerText = ""
     let errorOccured = false;
     resetAllErrors();
     const nameRegex = /^(?![0-9])[a-zA-Z0-9]{5,}$/;
