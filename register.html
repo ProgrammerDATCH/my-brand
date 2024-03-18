@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/profile.png" type="image/x-icon">
     <title>David - Register</title>
     <link rel="stylesheet" href="css/register.css">
 </head>
@@ -25,7 +26,7 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="blogs.html">Blogs</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li><a href="login.html" class="active">Login</a></li>
             </ul>
         </div>
     </nav>
@@ -40,9 +41,17 @@
                         <td>Names:</td>
                         <td><input type="text" id="nameInput" placeholder="Enter your full names"/></td>
                     </tr>
+                    <tr class="error-tr">
+                        <td></td>
+                        <td  class="error-message-td"><span class="error-message" id="nameError"></span></td>
+                    </tr>
                     <tr>
                         <td>Email:</td>
                         <td><input type="email" id="emailInput" placeholder="Enter your Email"/></td>
+                    </tr>
+                    <tr class="error-tr">
+                        <td></td>
+                        <td  class="error-message-td"><span class="error-message" id="emailError"></span></td>
                     </tr>
                     <tr>
                         <td>Password:</td>
@@ -51,9 +60,17 @@
                     <tr>
                         <td colspan="2" class="errorPassword"><span id="errorPassword"></span></td>
                     </tr>
+                    <tr class="error-tr">
+                        <td></td>
+                        <td  class="error-message-td"><span class="error-message" id="passwordError"></span></td>
+                    </tr>
                     <tr>
                         <td>Repeat Password:</td>
                         <td><input type="password" id="passwordRepeatInput" placeholder="Confirm Password" /></td>
+                    </tr>
+                    <tr class="error-tr">
+                        <td></td>
+                        <td  class="error-message-td"><span class="error-message" id="passwordRepeatError"></span></td>
                     </tr>
                     <tr>
                         <td colspan="2"><span id="errorSpan"></span></td>

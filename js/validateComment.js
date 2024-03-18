@@ -4,6 +4,10 @@ const emailInput = document.getElementById('emailInput');
 const commentInput = document.getElementById('commentInput');
 const errorSpan = document.getElementById('errorSpan');
 
+const nameError = document.getElementById('nameError');
+const emailError = document.getElementById('emailError');
+const commentError = document.getElementById('commentError');
+
 
 commentForm.addEventListener("submit", (e)=>handleSend(e))
 
@@ -12,38 +16,30 @@ const allCommentsData = [];
 function handleSend(e){
     e.preventDefault();
     let errorOccured = false;
-    let allErrors = [];
+    resetAllErrors();
     const nameRegex = /^[a-zA-Z]{5,}$/;
     if(!nameRegex.test(nameInput.value)){
         errorOccured = true;
-        allErrors.push("Please use real name.")
+        nameError.innerText = "Please use real name."
+        if(nameInput.value == "") nameError.innerText = "Name is required."
         nameInput.classList.add("invalid")
     }
     const emailRegex = /^[a-zA-Z0-9._]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if(!emailRegex.test(emailInput.value)){
         errorOccured = true;
-        allErrors.push("Please use real email.")
+        emailError.innerText = "Please use real email."
+        if(emailInput.value == "") emailError.innerText = "Email is required."
         emailInput.classList.add("invalid")
     }
     if(commentInput.value.length < 20){
         errorOccured = true;
-        allErrors.push("Comment is shorter than 20 characters.")
+        commentError.innerText = "Comment is shorter than 20 characters."
+        if(commentInput.value == "") commentError.innerText = "Comment is required."
         commentInput.classList.add("invalid")
     }
 
-    if(errorOccured){
-        const ul = document.createElement("ul")
-        allErrors.forEach(error => {
-            const li = document.createElement("li")
-            li.classList.add("failed")
-            li.innerHTML = `${error}`
-            ul.appendChild(li)
-        }
-        )
-        errorSpan.innerHTML = ""
-        errorSpan.appendChild(ul)
-        return;
-    }
+    if(errorOccured) return;
+    resetAllErrors()
 
     const newCommentData = {
         name: nameInput.value,
@@ -56,4 +52,10 @@ function handleSend(e){
     nameInput.value = ""
     emailInput.value = ""
     commentInput.value = ""
+}
+
+function resetAllErrors(){
+    nameError.innerText = ""
+    emailError.innerText = ""
+    commentError.innerText = ""
 }
