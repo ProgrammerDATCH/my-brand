@@ -21,6 +21,7 @@ const allRegisterData = [];
 function handleSend(e) {
   e.preventDefault();
   let errorOccured = false;
+  errorSpan.innerText = ""
   resetAllErrors()
   const nameRegex = /^[a-zA-Z]{5,}$/;
   if (!nameRegex.test(nameInput.value.trim())) {
@@ -95,10 +96,10 @@ function handleSend(e) {
 
 function checkPassword(passwordValue) {
   const requirements = [
-    { regex: /[A-Z]/g, message: "Uppercase" },
-    { regex: /[a-z]/g, message: "Lowercase" },
-    { regex: /\d/g, message: "Digit" },
-    { regex: /[^A-Za-z0-9]/g, message: "Special Char" },
+    { regex: /[A-Z]/g, message: " Uppercase | " },
+    { regex: /[a-z]/g, message: "Lowercase | " },
+    { regex: /\d/g, message: "Digit | " },
+    { regex: /[^A-Za-z0-9]/g, message: "Special Char | " },
     { regex: /.{8,}/g, message: "8 Chars" }
   ];
 
@@ -108,9 +109,10 @@ function checkPassword(passwordValue) {
   let allMatches = true;
   requirements.forEach(requirement => {
     const span = document.createElement("span");
+    span.classList.add("single-error-span")
     const isValid = requirement.regex.test(passwordValue);
     span.classList.add(isValid ? "validPass" : "invalidPass");
-    span.innerHTML = ` ${requirement.message} |`;
+    span.innerHTML = ` ${requirement.message} `;
     errorPassword.appendChild(span);
     allMatches = allMatches && isValid;
   });

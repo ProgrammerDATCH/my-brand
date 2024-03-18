@@ -147,9 +147,14 @@ textarea:focus, input:focus:not(#passwordInput):not(#passwordRepeatInput) {
 }
 .error-message {
     color: red;
-    font-size: 13px;
+    font-size: 15px;
 }
 
+@media only screen and (max-width: 768px){
+    .error-message {
+        font-size: 13px;
+    }
+}
 
 @media only screen and (max-width: 768px){
     /*Phone*/
@@ -198,6 +203,9 @@ textarea:focus, input:focus:not(#passwordInput):not(#passwordRepeatInput) {
     nav ul li a.active::after{
         content: '';
         display: none;
+    }
+    .error-message {
+        font-size: 12px;
     }
 }
 

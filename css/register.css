@@ -63,12 +63,12 @@ td button:hover{
 
 #errorPassword{
     white-space: nowrap;
-    font-size: small;
-   
 }
 .errorPassword{
-     width: 100%;
-    text-align: center;
+    padding-left: 2px;
+}
+.single-error-span{
+    font-size: 12px;
 }
 .validPass{
     color: green;
@@ -88,7 +88,12 @@ td button:hover{
     form{
         width: 70%;
     }
-    
+    .single-error-span{
+        font-size: 13px;
+    }
+    .errorPassword{
+        padding-left: 20px;
+    }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -98,6 +103,12 @@ td button:hover{
     }
     form{
         width: 50%;
+    }
+    .single-error-span{
+        font-size: 15px;
+    }
+    .errorPassword{
+        padding-left: 20px;
     }
     
 

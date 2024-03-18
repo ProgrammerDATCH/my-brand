@@ -13,6 +13,7 @@ function handleSend(e) {
     e.preventDefault();
     errorEmail.innerText = ""
     errorPassword.innerText = ""
+    errorSpan.innerText = ""
     let errorOccured = false;
     const emailRegex = /^[a-zA-Z0-9._]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(emailInput.value.trim())) {
