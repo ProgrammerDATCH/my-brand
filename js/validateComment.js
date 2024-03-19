@@ -18,14 +18,14 @@ function handleSend(e){
     errorSpan.innerText = ""
     let errorOccured = false;
     resetAllErrors();
-    const nameRegex = /^[a-zA-Z]{5,}$/;
+    const nameRegex = /^(?![0-9])[a-zA-Z0-9]{5,}$/;
     if(!nameRegex.test(nameInput.value)){
         errorOccured = true;
         nameError.innerText = "Please use real name."
         if(nameInput.value == "") nameError.innerText = "Name is required."
         nameInput.classList.add("invalid")
     }
-    const emailRegex = /^[a-zA-Z0-9._]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const emailRegex = /^[a-zA-Z][a-zA-Z0-9._]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if(!emailRegex.test(emailInput.value)){
         errorOccured = true;
         emailError.innerText = "Please use real email."
