@@ -1,0 +1,119 @@
+@import url('nav.css');
+
+@import url('footer.css');
+
+.container {
+    padding: 20px;
+    min-height: 80vh;
+    width: 100%;
+}
+
+#loginContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#loginContainer > h1{
+    margin: 20px 0;
+    text-align: center;
+    font-size: 30px;
+}
+
+form{
+    box-shadow: 0 0 4px var(--shine-color);
+    padding: 30px 10px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+tr td:nth-child(2){
+    width: 75%;
+}
+.for-submit, .bottom-td{
+    text-align: center;
+}
+input{
+    box-shadow: 0 0 10px var(--bg-middle);
+    border-radius: 12px;
+    padding: 20px;
+    border: none;
+    height: 50px;
+    width: 100%;
+}
+
+input::placeholder{
+    color: var(--text-grey);
+    font-size: 18px;
+}
+
+input:focus {
+    outline: 2px solid var(--shine-color);
+}
+td button{
+    background-color: var(--shine-color);
+    color: var(--text-color);
+    padding: 10px 30px;
+    border-radius: 20px;
+    width: 180px;
+    height: 50px;
+    font-size: 25px;
+    border: none;
+}
+td button:hover{
+    background-color: var(--bg-grey);
+    color: var(--shine-color);
+    box-shadow: 0px 0px 6px var(--shine-color);
+}
+
+table{
+    width: 100%;
+}
+
+.failed{
+    color: red;
+    font-size: small;
+}
+.success{
+    color: green;
+    font-size: large;
+}
+#loginErrorSpan{
+    margin-left: 30px;
+}
+
+#loginErrorSpan ul{
+    margin-left: 30px;
+}
+
+.link-text{
+    color: blue;
+    cursor: pointer;
+}
+
+/* RESPONSIVENESS */
+
+@media only screen and (min-width: 768px) {
+    /*Tab*/
+
+    *{
+        font-size: 22px;
+    }
+    form{
+        width: 70%;
+    }
+    
+}
+
+@media only screen and (min-width: 1024px) {
+    /*PC*/
+    *{
+        font-size: 24px;
+    }
+    form{
+        width: 50%;
+    }
+    
+
+}

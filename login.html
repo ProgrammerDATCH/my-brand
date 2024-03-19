@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="images/profile.png" type="image/x-icon">
     <title>David - Login</title>
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/auth.css">
 </head>
 
 <body>
@@ -33,18 +33,18 @@
 
     <div class="container">
 
-        <div class="loginContainer">
+        <div id="loginContainer">
             <h1>Login</h1>
 
             <form id="loginForm">
                 <table>
                     <tr>
                         <td>Email:</td>
-                        <td><input type="email" id="emailInput" placeholder="Enter your Email" /></td>
+                        <td><input type="email" id="loginEmailInput" placeholder="Enter your Email" /></td>
                     </tr>
                     <tr class="error-tr">
                         <td></td>
-                        <td  class="error-message-td"><span class="error-message" id="emailError"></span></td>
+                        <td  class="error-message-td"><span class="error-message" id="loginEmailError"></span></td>
                     </tr>
                     <tr>
                         <td>Password:</td>
@@ -52,10 +52,10 @@
                     </tr>
                     <tr class="error-tr">
                         <td></td>
-                        <td class="error-message-td"><span class="error-message" id="passwordError"></span></td>
+                        <td class="error-message-td"><span class="error-message" id="loginPasswordError"></span></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><span id="errorSpan"></span></td>
+                        <td colspan="2"><span id="loginErrorSpan"></span></td>
                     </tr>
                     <tr>
                         <td colspan="2" class="for-submit">
@@ -63,11 +63,68 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2" class="bottom-td">No account yet? <a href="register.html">Register</a> </td>
+                        <td colspan="2" class="bottom-td">No account yet? <span class="link-text" id="showRegister">Register</span> </td>
                     </tr>
                 </table>
             </form>
         </div>
+
+        <div id="registerContainer">
+            <h1>Register</h1>
+
+            <form id="registerForm">
+                <table>
+                    <tr>
+                        <td>Names:</td>
+                        <td><input type="text" id="nameInput" placeholder="Enter your full names"/></td>
+                    </tr>
+                    <tr class="error-tr">
+                        <td></td>
+                        <td  class="error-message-td"><span class="error-message" id="nameError"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td><input type="email" id="emailInput" placeholder="Enter your Email"/></td>
+                    </tr>
+                    <tr class="error-tr">
+                        <td></td>
+                        <td  class="error-message-td"><span class="error-message" id="emailError"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type="password" id="passwordInput" placeholder="Enter your Password" /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="errorPassword"><span id="errorPassword"></span></td>
+                    </tr>
+                    <tr class="error-tr">
+                        <td></td>
+                        <td  class="error-message-td"><span class="error-message" id="passwordError"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Repeat Password:</td>
+                        <td><input type="password" id="passwordRepeatInput" placeholder="Confirm Password" /></td>
+                    </tr>
+                    <tr class="error-tr">
+                        <td></td>
+                        <td  class="error-message-td"><span class="error-message" id="passwordRepeatError"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><span id="errorSpan"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="for-submit">
+                            <button type="submit">Register</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="bottom-td">Already got an account? <span class="link-text" id="showLogin">Login</span> </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
 
 
     </div>
@@ -87,8 +144,8 @@
         </div>
     </footer>
 
-    <script src="js/validateLogin.js"></script>
     <script src="js/common.js"></script>
+    <script src="js/validateAuth.js"></script>
 </body>
 
 </html>

@@ -8,14 +8,14 @@
     width: 100%;
 }
 
-.registerContainer{
+#registerContainer{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.registerContainer > h1{
+#registerContainer > h1{
     margin: 20px 0;
     text-align: center;
     font-size: 30px;
@@ -77,6 +77,9 @@ td button:hover{
     color: red;
 }
 
+#registerContainer{
+    display: none;
+}
 /* RESPONSIVENESS */
 
 @media only screen and (min-width: 768px) {
@@ -110,6 +113,4 @@ td button:hover{
     .errorPassword{
         padding-left: 20px;
     }
-    
-
 }
