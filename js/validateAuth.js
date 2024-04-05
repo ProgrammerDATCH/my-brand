@@ -38,7 +38,7 @@ passwordInput.addEventListener("keyup", (e) => checkPassword(e.target.value));
 passwordRepeatInput.addEventListener("keyup", checkPasswordRepeat);
 
 // Functions
-function handleLogin(e) {
+async function handleLogin(e) {
     e.preventDefault();
     loginErrorEmail.innerText = "";
     loginErrorPassword.innerText = "";
@@ -64,24 +64,26 @@ function handleLogin(e) {
     if (errorOccured) return;
     loginErrorEmail.innerText = "";
     loginErrorPassword.innerText = "";
+    const loginData = {
+        email: loginEmailInput.value.trim(),
+        password: loginPasswordInput.value.trim(),
+    }
     //check if user is registered.
-    let isUserFound = false;
-    allRegisterData.forEach((user) => {
-        if (user.email === loginEmailInput.value && user.password === loginPasswordInput.value) {
-            isUserFound = true;
-            return;
-        }
-    });
-    if (isUserFound) {
-        loginErrorSpan.innerHTML = '<span class="success">Login Successful!</span>';
+    const res = await getPostServerResponse("/api/users/login", loginData)
+    if (!res.status) {
+        loginErrorSpan.innerHTML = `<span class="failed">${res.message}</span>`;
+        return;
+    }
+    else{
+        console.log("Token: ", res.message.token)
+        loginErrorSpan.innerHTML = `<span class="success">${res.message.user.name} Login Successful!</span>`;
         loginEmailInput.value = "";
         loginPasswordInput.value = "";
-    } else {
-        loginErrorSpan.innerHTML = '<span class="failed">Incorrect Email or Password!</span>';
     }
+    
 }
 
-function handleSend(e) {
+async function handleSend(e) {
     e.preventDefault();
     let errorOccured = false;
     errorSpan.innerText = "";
@@ -120,32 +122,26 @@ function handleSend(e) {
     }
     if (errorOccured) return;
     resetAllErrors();
-    //check if user is already registered.
-    let isUserRegistered = false;
-    allRegisterData.forEach((user) => {
-        if (user.email === emailInput.value) {
-            isUserRegistered = true;
-            return;
-        }
-    });
-    if (isUserRegistered) {
-        errorSpan.innerHTML = '<span class="failed">User is already registered. Try a different Email.</span>';
-        return;
-    }
     const newRegisterData = {
         name: nameInput.value,
         email: emailInput.value,
         password: passwordInput.value
     };
-    allRegisterData.push(newRegisterData);
-    console.log(allRegisterData);
-    errorSpan.innerHTML = '<span class="success">Registered successfully!</span>';
-    nameInput.value = "";
-    emailInput.value = "";
-    passwordInput.value = "";
-    passwordRepeatInput.value = "";
-    passwordInput.classList.remove("valid");
-    passwordRepeatInput.classList.remove("valid");
+    //add to database
+    const res = await getPostServerResponse("/api/users/register", newRegisterData)
+    if (!res.status) {
+        errorSpan.innerHTML = `<span class="failed">${res.message}</span>`;
+        return;
+    }
+    else {
+        errorSpan.innerHTML = '<span class="success">Registered successfully!</span>';
+        nameInput.value = "";
+        emailInput.value = "";
+        passwordInput.value = "";
+        passwordRepeatInput.value = "";
+        passwordInput.classList.remove("valid");
+        passwordRepeatInput.classList.remove("valid");
+    }
 }
 
 function checkPassword(passwordValue) {
@@ -194,4 +190,19 @@ function resetAllErrors() {
     emailError.innerText = "";
     passwordError.innerText = "";
     passwordRepeatError.innerText = "";
+}
+
+async function getPostServerResponse(apiLink, postData) {
+    const serverLink = "http://localhost:9090";
+    const res = await fetch(`${serverLink}${apiLink}`, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(postData),
+    });
+    if (!res.ok) {
+        return false;
+    }
+    return await res.json();
 }
