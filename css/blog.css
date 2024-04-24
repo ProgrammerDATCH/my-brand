@@ -41,10 +41,13 @@
     width: 100%;
     border-radius: 15px;
     overflow: hidden;
+    display: flex;
+    align-items: flex-start;
 }
 
 .blog-img{
     width: 100%;
+    height: fit-content;
 }
 
 .blog-details{

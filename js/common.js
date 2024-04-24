@@ -2,8 +2,8 @@ const inputs = document.getElementsByTagName('input');
 const textArea = document.getElementsByTagName('textarea');
 
 for (let i = 0; i < inputs.length; i++) {
-    if(inputs[i].id != 'passwordInput' || inputs[i].id != 'passwordRepeatInput') {
-        inputs[i].onkeydown = function(event) {
+    if (inputs[i].id != 'passwordInput' || inputs[i].id != 'passwordRepeatInput') {
+        inputs[i].onkeydown = function (event) {
             inputs[i].classList.remove('invalid')
             document.getElementById(getErrorId(inputs[i].id)).innerText = ''
         };
@@ -11,7 +11,7 @@ for (let i = 0; i < inputs.length; i++) {
 }
 
 for (let j = 0; j < textArea.length; j++) {
-    textArea[j].onkeydown = function(event) {
+    textArea[j].onkeydown = function (event) {
         textArea[j].classList.remove('invalid')
         document.getElementById(getErrorId(textArea[j].id)).innerText = ''
     };
@@ -25,4 +25,40 @@ function getErrorId(inputId) {
         return errorId;
     }
     return '-';
+}
+
+
+function logoutUser(event) {
+    event.preventDefault();
+    document.cookie = "token=none; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    window.location.href = "/login.html";
+}
+
+const serverLink = "http://localhost:9090/api";
+onload=checkLoginToken()
+
+
+
+async function checkLoginToken() {
+    if (getCookies("token")) {
+        const links = document.querySelectorAll(".menu a");
+        links.forEach(link => {
+            if (link.textContent === "Login") {
+                link.textContent = "Logout";
+                link.href = "#";
+                link.addEventListener("click", logoutUser);
+            }
+        });
+    }
+}
+
+function getCookies(name) {
+    const cookies = document.cookie.split(";").map(cookie => cookie.trim());
+    for (const cookie of cookies) {
+        const [cookieName, cookieValue] = cookie.split("=");
+        if (cookieName === name) {
+            return cookieValue;
+        }
+    }
+    return null;
 }

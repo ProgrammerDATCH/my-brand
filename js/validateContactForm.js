@@ -13,9 +13,8 @@ const messageError = document.getElementById('messageError');
 
 contactForm.addEventListener("submit", (e)=>handleSend(e))
 
-const allContactsData = [];
 
-function handleSend(e){
+async function handleSend(e){
     e.preventDefault();
     errorSpan.innerText = ""
     let errorOccured = false;
@@ -57,9 +56,13 @@ function handleSend(e){
         subject: subjectInput.value,
         message: messageInput.value
     }
-    allContactsData.push(newContactData)
-    console.log(allContactsData)
-    errorSpan.innerHTML = '<span class="success">Message Sent!</span>'
+   const res = await getPostServerResponse("/api/suggestion/add", newContactData)
+   if(res.status){
+       errorSpan.innerHTML = '<span class="success">Message Sent!</span>'
+    }
+    else{
+       errorSpan.innerHTML = `<span class="failed">Error: ${res.message}</span>`
+   }
     nameInput.value = ""
     emailInput.value = ""
     subjectInput.value = ""
@@ -71,4 +74,20 @@ function resetAllErrors(){
     emailError.innerText = ""
     subjectError.innerText = ""
     messageError.innerText = ""
+}
+
+
+async function getPostServerResponse(apiLink, postData) {
+    const serverLink = "http://localhost:9090";
+    const res = await fetch(`${serverLink}${apiLink}`, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(postData),
+    });
+    if (!res.ok) {
+        return false;
+    }
+    return await res.json();
 }

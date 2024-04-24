@@ -33,42 +33,41 @@
 
     <div class="container">
         <h1>Blogs</h1>
-        <div class="blogs-container">
 
-            <div class="blog-div">
-                <div class="blog-img-div">
-                    <img src="images/blogs/lang.jpg" alt="Blog-image" class="blog-img">
-                </div>
-                <div class="blog-details">
-                    <h5>What is programming languages</h5>
-                    <p>Programming languages are the backbone of modern technology, enabling us to communicate instructions to computers and devices. They serve as the foundation for creating software, websites, apps, and much more. These languages are designed with specific syntax and rules that dictate how code is written and executed.</p>
-                    <span class="read-more-span"><a href="blog.html?id=1">Read more</a></span>
-                </div>
-            </div>
-            
-            <div class="blog-div">
-                <div class="blog-img-div">
-                    <img src="images/blogs/books.png" alt="Blog-image" class="blog-img">
-                </div>
-                <div class="blog-details">
-                    <h5>Best books to master coding</h5>
-                    <p>These books focus on various aspects of coding, such as writing clean, maintainable code; improving programming skills with practical advice; mastering software development practices.</p>
-                    <span class="read-more-span"><a href="blog.html?id=1">Read more</a></span>
-                </div>
-            </div>
-            
-            <div class="blog-div">
-                <div class="blog-img-div">
-                    <img src="images/blogs/pc1.webp" alt="Blog-image" class="blog-img">
-                </div>
-                <div class="blog-details">
-                    <h5>Why is Javascript a language of the web</h5>
-                    <p>JavaScript has become a language synonymous with the web due to its pivotal role in enabling interactive and dynamic web experiences. One of the key reasons for its prominence is its ability to run directly in web browsers, making it accessible to nearly every internet user without the need for additional software or plugins. This ubiquity has led to JavaScript being adopted as the standard client-side scripting language for web development.</p>
-                    <span class="read-more-span"><a href="blog.html?id=1">Read more</a></span>
-                </div>
-            </div>
-           
+        <div id="notLoggedIn">
+            <a href="login.html">
+                <h6>You can login to add a Blog.</h5>
+            </a>
         </div>
+
+        <div class="add-blog" id="addBlogDiv">
+            <h6 id="nameGreater">Hello, You can now Add a Blog.</h5>
+                <button class="btn" onclick="showAddBlog()">Add New Blog</button>
+                <div class="add-popup" id="addPopup">
+                    <div class="contents">
+                        <img class="action-img close-img" id="closeBtnAdd" src="./images/close.png" />
+                        <h3>Add New Blog</h3>
+                        <div id="addForm" class="add-form">
+                            <input type="text" id="addTitle" placeholder="Title" class="titleInput" />
+                            <div class="input-wrapper">
+                                <label for="addImage">Choose a Blog Image</label>
+                                <input type="file" id="addImage" accept="image/png, image/jpeg" />
+                                <span id="choosenFileSpan"></span>
+                            </div>
+
+                            <textarea id="addDescription" cols="30" rows="10" placeholder="Description"
+                                class="descInput"></textarea>
+
+                            <div class="action-btns">
+                                <button class="cancel-btn btn" id="cancelBtnAdd">Cancel</button>
+                                <button class="add-btn btn" id="addBtn" onclick="addBlog()">ADD</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <div class="blogs-container" id="blogsContainer"></div>
     </div>
 
     <footer>
@@ -86,6 +85,8 @@
         </div>
     </footer>
 
+    <script src="js/blogs.js"></script>
+    <script src="js/common.js"></script>
 </body>
 
 </html>

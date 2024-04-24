@@ -68,19 +68,21 @@ async function handleLogin(e) {
         email: loginEmailInput.value.trim(),
         password: loginPasswordInput.value.trim(),
     }
-    //check if user is registered.
     const res = await getPostServerResponse("/api/users/login", loginData)
     if (!res.status) {
         loginErrorSpan.innerHTML = `<span class="failed">${res.message}</span>`;
         return;
     }
-    else{
-        console.log("Token: ", res.message.token)
-        loginErrorSpan.innerHTML = `<span class="success">${res.message.user.name} Login Successful!</span>`;
+    else {
+        document.cookie = `token=${res.message.token}; path=/`;
         loginEmailInput.value = "";
         loginPasswordInput.value = "";
+        loginErrorSpan.innerHTML = `<span class="success">${res.message.user.name} Login Successful!</span>`;
+        setTimeout(() => {
+            window.location.href = "/blogs.html";
+        }, 2000);
     }
-    
+
 }
 
 async function handleSend(e) {
