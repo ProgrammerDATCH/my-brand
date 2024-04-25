@@ -34,7 +34,6 @@ function logoutUser(event) {
     window.location.href = "/login.html";
 }
 
-const serverLink = "http://localhost:9090/api";
 onload=checkLoginToken()
 
 

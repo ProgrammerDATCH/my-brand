@@ -1,5 +1,6 @@
+const serverLink = 'https://mybrandbackend-4e8h.onrender.com/api';
+
 const blogTitle = document.getElementById("blogTitle");
-// const blogDescription = document.getElementById("blogDescription");
 const blogImage = document.getElementById("blogImage");
 const introDivs = document.querySelectorAll(".introDiv");
 
@@ -14,14 +15,13 @@ const showBlogDetails = async () => {
         return;
     }
 
-    const res = await fetch(`http://localhost:9090/api/blog/blog/${id}`);
+    const res = await fetch(`${serverLink}/blog/blog/${id}`);
     if (!res.ok) {
         console.log("Send API Failed!");
         return;
     }
     const blog = await res.json();
     blogTitle.innerText = blog.message.title;
-    // blogDescription.innerText = blog.message.description;
     blogImage.src = blog.message.image;
     introDivs.forEach(element => {
         element.innerText = blog.message.description;

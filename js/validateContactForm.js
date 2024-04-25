@@ -1,3 +1,5 @@
+const serverLink = 'https://mybrandbackend-4e8h.onrender.com/api';
+
 const contactForm = document.getElementById('contactForm');
 const nameInput = document.getElementById('nameInput');
 const emailInput = document.getElementById('emailInput');
@@ -56,7 +58,7 @@ async function handleSend(e){
         subject: subjectInput.value,
         message: messageInput.value
     }
-   const res = await getPostServerResponse("/api/suggestion/add", newContactData)
+   const res = await getPostServerResponse("/suggestion/add", newContactData)
    if(res.status){
        errorSpan.innerHTML = '<span class="success">Message Sent!</span>'
     }
@@ -78,7 +80,6 @@ function resetAllErrors(){
 
 
 async function getPostServerResponse(apiLink, postData) {
-    const serverLink = "http://localhost:9090";
     const res = await fetch(`${serverLink}${apiLink}`, {
         method: "POST",
         headers: {

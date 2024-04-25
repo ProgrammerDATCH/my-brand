@@ -1,3 +1,6 @@
+
+const serverLink = 'https://mybrandbackend-4e8h.onrender.com/api';
+
 // Login
 const loginForm = document.getElementById('loginForm');
 const loginEmailInput = document.getElementById('loginEmailInput');
@@ -68,7 +71,7 @@ async function handleLogin(e) {
         email: loginEmailInput.value.trim(),
         password: loginPasswordInput.value.trim(),
     }
-    const res = await getPostServerResponse("/api/users/login", loginData)
+    const res = await getPostServerResponse("/users/login", loginData)
     if (!res.status) {
         loginErrorSpan.innerHTML = `<span class="failed">${res.message}</span>`;
         return;
@@ -130,7 +133,7 @@ async function handleSend(e) {
         password: passwordInput.value
     };
     //add to database
-    const res = await getPostServerResponse("/api/users/register", newRegisterData)
+    const res = await getPostServerResponse("/users/register", newRegisterData)
     if (!res.status) {
         errorSpan.innerHTML = `<span class="failed">${res.message}</span>`;
         return;
@@ -195,7 +198,6 @@ function resetAllErrors() {
 }
 
 async function getPostServerResponse(apiLink, postData) {
-    const serverLink = "http://localhost:9090";
     const res = await fetch(`${serverLink}${apiLink}`, {
         method: "POST",
         headers: {

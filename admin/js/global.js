@@ -1,10 +1,10 @@
+const serverLinkGlobal = 'https://mybrandbackend-4e8h.onrender.com/api';
+
 function logout() {
     document.cookie = "adminToken=none; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
     window.location.href = '/admin/login.html';
 }
 
-
-const globalServerLink = "http://localhost:9090/api";
 
 document.addEventListener("DOMContentLoaded", checkToken);
 
@@ -15,7 +15,7 @@ async function checkToken() {
         return;
     }
     try{
-        const res = await fetch(`${globalServerLink}/admin/check`, {
+        const res = await fetch(`${serverLinkGlobal}/admin/check`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',

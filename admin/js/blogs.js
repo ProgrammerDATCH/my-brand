@@ -1,4 +1,4 @@
-const serverLink = "http://localhost:9090/api";
+const serverLink = 'https://mybrandbackend-4e8h.onrender.com/api';
 
 const allBlogs = document.getElementById("allBlogs");
 

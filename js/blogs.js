@@ -1,3 +1,5 @@
+const serverLink = 'https://mybrandbackend-4e8h.onrender.com/api';
+
 const blogsContainer = document.getElementById("blogsContainer");
 const addPopup = document.getElementById('addPopup');
 const closeBtnAdd = document.getElementById('closeBtnAdd');
@@ -39,7 +41,7 @@ async function addBlog() {
 
 
 const showBlogs = async() =>{
-    const res = await fetch("http://localhost:9090/api/blog/blogs");
+    const res = await fetch(`${serverLink}/blog/blogs`);
     if (!res.ok) {
         console.log("Send API Failed!");
         return;
@@ -65,8 +67,6 @@ const showBlogs = async() =>{
 
 onload = ()=> {showBlogs(); checkLoginToken();}
 
-
-const serverLink = "http://localhost:9090/api";
 
 async function checkToken() {
     const token = getCookie("token");

@@ -1,3 +1,5 @@
+const serverLink = 'https://mybrandbackend-4e8h.onrender.com/api';
+
 const loginForm = document.getElementById('loginForm');
 const loginEmailInput = document.getElementById('loginEmailInput');
 const loginPasswordInput = document.getElementById('loginPasswordInput');
@@ -38,7 +40,7 @@ async function handleLogin(e) {
         email: loginEmailInput.value.trim(),
         password: loginPasswordInput.value.trim(),
     }
-    const res = await getPostServerResponse("/api/admin/login", loginData)
+    const res = await getPostServerResponse("/admin/login", loginData)
     if(!res){
         loginErrorSpan.innerHTML = `<span class="failed">No Connection to the server</span>`;
         return;
@@ -63,8 +65,6 @@ async function handleLogin(e) {
 
 async function getPostServerResponse(apiLink, postData) {
     try{
-
-        const serverLink = "http://localhost:9090";
         const res = await fetch(`${serverLink}${apiLink}`, {
             method: "POST",
             headers: {
