@@ -2,7 +2,7 @@ const serverLinkGlobal = 'https://mybrandbackend-4e8h.onrender.com/api';
 
 function logout() {
     document.cookie = "adminToken=none; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
-    window.location.href = '/admin/login.html';
+    window.location.href = '/my-brand/admin/login.html';
 }
 
 
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", checkToken);
 async function checkToken() {
     const token = getCookie();
     if (!token) {
-        window.location.href = "/admin/login.html";
+        window.location.href = "/my-brand/admin/login.html";
         return;
     }
     try{
@@ -24,16 +24,16 @@ async function checkToken() {
         });
         if (!res.ok) {
             console.error('Failed to call API');
-            window.location.href = "/admin/login.html";
+            window.location.href = "/my-brand/admin/login.html";
             return;
         }
         const data = await res.json();
         if (!data.status) {
-            window.location.href = "/admin/login.html";
+            window.location.href = "/my-brand/admin/login.html";
         }
     }
     catch(error){
-        window.location.href = "/admin/login.html";
+        window.location.href = "/my-brand/admin/login.html";
     } 
 }
 

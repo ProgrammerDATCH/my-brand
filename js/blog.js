@@ -11,7 +11,7 @@ const showBlogDetails = async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
     if (!id || !isValidObjectId.test(id)) {
-        window.location.href = '/blogs.html';
+        window.location.href = '/my-brand/blogs.html';
         return;
     }
 
