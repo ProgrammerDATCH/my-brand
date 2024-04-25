@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="images/dashboard.png" type="image/x-icon">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/users.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div class="sidebar">
+
+        <div class="logo">
+            <h2>Admin</h2>
+        </div>
+
+        <ul class="menu">
+            <li><a href="./">Dashboard</a></li>
+            <li><a href="users.html">Users</a></li>
+            <li><a href="#" class="active">Blogs</a></li>
+            <li><a href="suggestions.html">Suggestions</a></li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+
+    </div>
+
+    <div class="content">
+        <h1 class="title">All Blogs</h1>
+
+        <div class="users-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Image</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="allBlogs">
+                   
+                </tbody>
+            </table>
+        </div>
+        
+
+        
+    </div>
+
+    <script src="js/global.js"></script>
+    <script src="js/blogs.js"></script>
+</body>
+
+</html>

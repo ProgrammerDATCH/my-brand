@@ -1,0 +1,49 @@
+@import 'nav.css';
+
+.users-table {
+    margin-top: 20px;
+    /* background-color: aqua; */
+    width: 100%;
+    overflow-x: scroll;
+}
+table{
+    width: 90%;
+    border-radius: 10px;
+}
+.users-table th, .users-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    /* white-space: nowrap; */
+    overflow: hidden;
+    /* text-overflow: ellipsis; */
+    border-radius: 5px;
+}
+
+.users-table th {
+    background-color: #f0f0f0;
+}
+
+.users-table button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.users-table button:hover {
+    background-color: #c82333;
+}
+
+.users-table button:active {
+    background-color: #bd2130;
+}
+
+
+
+
+@media only screen and (max-width: 768px) {
+    /*  */
+}

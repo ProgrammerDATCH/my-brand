@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div id="loginContainer">
+            <h1>Admin Login</h1>
+
+            <form id="loginForm">
+                <table>
+                    <tr>
+                        <td>Email:</td>
+                        <td><input type="email" id="loginEmailInput" placeholder="Enter your Email" /></td>
+                    </tr>
+                    <tr class="error-tr">
+                        <td></td>
+                        <td class="error-message-td"><span class="error-message" id="loginEmailError"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type="password" id="loginPasswordInput" placeholder="Enter your Password" /></td>
+                    </tr>
+                    <tr class="error-tr">
+                        <td></td>
+                        <td class="error-message-td"><span class="error-message" id="loginPasswordError"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><span id="loginErrorSpan"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="for-submit">
+                            <button type="submit">Login</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/login.js"></script>
+</body>
+
+</html>
