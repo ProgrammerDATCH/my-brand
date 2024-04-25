@@ -55,7 +55,7 @@ async function handleLogin(e) {
         loginPasswordInput.value = "";
         loginErrorSpan.innerHTML = `<span class="success">${res.message.admin.name} Login Successful!</span>`;
         setTimeout(() => {
-            window.location.href = "/admin/";
+            window.location.href = "/my-brand/admin/";
         }, 2000);
     }
 
