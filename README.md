@@ -2,6 +2,11 @@
 
 Welcome to MY BRAND, a website created by David TUYISHIME. This website is designed to showcase David's work, provide information about him, and offer a platform for blogging and communication.
 
+### Hosted Frontnd
+
+This frontEnd is hosted on [https://programmerdatch.github.io/my-brand](https://programmerdatch.github.io/my-brand).
+
+
 ### Pages
 
 - **Home**: Get to know more about David and his work.
