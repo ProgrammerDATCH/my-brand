@@ -71,7 +71,9 @@ async function handleLogin(e) {
         email: loginEmailInput.value.trim(),
         password: loginPasswordInput.value.trim(),
     }
+    document.getElementById('userLoginBtn').innerText = "Logging in..."
     const res = await getPostServerResponse("/users/login", loginData)
+    document.getElementById('userLoginBtn').innerText = "Login"
     if (!res.status) {
         loginErrorSpan.innerHTML = `<span class="failed">${res.message}</span>`;
         return;
@@ -133,7 +135,9 @@ async function handleSend(e) {
         password: passwordInput.value
     };
     //add to database
+    document.getElementById('userRegisterBtn').innerText = "Registering..."
     const res = await getPostServerResponse("/users/register", newRegisterData)
+    document.getElementById('userRegisterBtn').innerText = "Register"
     if (!res.status) {
         errorSpan.innerHTML = `<span class="failed">${res.message}</span>`;
         return;
@@ -146,6 +150,10 @@ async function handleSend(e) {
         passwordRepeatInput.value = "";
         passwordInput.classList.remove("valid");
         passwordRepeatInput.classList.remove("valid");
+        setTimeout(()=>{
+            registerContainer.style.display = 'none';
+            loginContainer.style.display = 'flex';
+        }, 2000)
     }
 }
 

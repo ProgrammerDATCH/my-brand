@@ -121,6 +121,10 @@ table {
     cursor: pointer;
 }
 
+#userLoginBtn{
+    width: 220px;
+}
+
 /* RESPONSIVENESS */
 
 @media only screen and (min-width: 768px) {
