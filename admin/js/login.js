@@ -40,7 +40,9 @@ async function handleLogin(e) {
         email: loginEmailInput.value.trim(),
         password: loginPasswordInput.value.trim(),
     }
+    document.getElementById("adminLoginBtn").innerText = "Logging in...";
     const res = await getPostServerResponse("/admin/login", loginData)
+    document.getElementById("adminLoginBtn").innerText = "Login";
     if(!res){
         loginErrorSpan.innerHTML = `<span class="failed">No Connection to the server</span>`;
         return;
@@ -79,5 +81,27 @@ async function getPostServerResponse(apiLink, postData) {
     }
     catch (err) {
         return false;
+    }
+}
+
+
+
+function getErrorId(inputId) {
+    const index = inputId.indexOf('Input');
+    if (index !== -1) {
+        const errorId = inputId.substring(0, index).trim() + "Error";
+        return errorId;
+    }
+    return '-';
+}
+
+const inputs = document.getElementsByTagName('input');
+
+for (let i = 0; i < inputs.length; i++) {
+    if (inputs[i].id != 'passwordInput' || inputs[i].id != 'passwordRepeatInput') {
+        inputs[i].onkeydown = function (event) {
+            inputs[i].classList.remove('invalid')
+            document.getElementById(getErrorId(inputs[i].id)).innerText = ''
+        };
     }
 }

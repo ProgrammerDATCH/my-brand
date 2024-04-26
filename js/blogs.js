@@ -31,11 +31,13 @@ async function addBlog() {
     const file = addImageInput.files[0];
     const imageBase64 = await convertToBase64(file);
 
+    document.getElementById('addBtn').innerText = "Adding..."
     if(await callAPI("/blog/add", "POST", { title: addTitle, image: imageBase64, description: addDescription }, addPopup)) {
-        alert("Blog Added");
+        document.getElementById('addBtn').innerText = "ADD"
         document.getElementById('addTitle').value = "";
         document.getElementById('addDescription').value = "";
         addImageInput.value = "";
+        alert("Blog Added");
     }
 }
 

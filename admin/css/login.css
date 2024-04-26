@@ -119,7 +119,9 @@ table {
     color: blue;
     cursor: pointer;
 }
-
+#adminLoginBtn{
+    width: 220px;
+}
 /* RESPONSIVENESS */
 
 @media only screen and (min-width: 768px) {
