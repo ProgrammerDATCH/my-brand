@@ -62,11 +62,8 @@ const showBlogs = async() =>{
             </div>
                 `
     });
-    checkToken()
+    
 }
-
-onload = ()=> {showBlogs(); checkLoginToken();}
-
 
 async function checkToken() {
     const token = getCookie("token");
@@ -78,6 +75,7 @@ async function checkToken() {
                 "Authorization": `Bearer ${token}`
             }
         });
+        console.dir(res)
         if(res.ok) {
             const data = await res.json();
             if (data.status) {
@@ -125,7 +123,6 @@ const convertToBase64 = (file) => {
 
 
 async function callAPI(apiLink, apiMethod, apiData, popupToHide = null) {
-    console.log("Called")
     const token = getCookie("token");
     if (!token) {
         window.location.href = "/login.html";
@@ -156,6 +153,7 @@ function logoutUser(event) {
 }
 
 
+
 async function checkLoginToken() {
     if (getCookie("token")) {
         const links = document.querySelectorAll(".menu a");
@@ -182,3 +180,5 @@ function truncateName(name) {
     }
     return name;
 }
+
+checkLoginToken(); checkToken(); showBlogs();
