@@ -36,12 +36,16 @@
 
         <div id="notLoggedIn">
             <a href="login.html">
-                <h6>You can login to add a Blog.</h5>
+                <h6>Login to add a Blog.</h6>
             </a>
         </div>
 
+        <div id="mustVerify">
+                <h6>Verify your email to add a blog</h6>
+        </div>
+
         <div class="add-blog" id="addBlogDiv">
-            <h6 id="nameGreater">Hello, You can now Add a Blog.</h5>
+            <h6 id="nameGreater">Hello, You can now Add a Blog.</h6>
                 <button class="btn" onclick="showAddBlog()">Add New Blog</button>
                 <div class="add-popup" id="addPopup">
                     <div class="contents">
@@ -67,7 +71,12 @@
                 </div>
         </div>
 
-        <div class="blogs-container" id="blogsContainer"></div>
+        <div class="blogs-container" id="blogsContainer">
+            <div class="loading-holder">
+                <img src="images/loading.gif" width="200px" />
+                <p class="loading-text">Loading...</p>
+            </div>
+        </div>
     </div>
 
     <footer>

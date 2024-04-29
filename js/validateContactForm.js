@@ -58,7 +58,9 @@ async function handleSend(e){
         subject: subjectInput.value,
         message: messageInput.value
     }
-   const res = await getPostServerResponse("/suggestion/add", newContactData)
+    document.getElementById("sendSuggestionBtn").innerText = "Sending..."
+    const res = await getPostServerResponse("/suggestion/add", newContactData)
+    document.getElementById("sendSuggestionBtn").innerText = "Send"
    if(res.status){
        errorSpan.innerHTML = '<span class="success">Message Sent!</span>'
     }

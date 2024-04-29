@@ -209,3 +209,34 @@ textarea:focus, input:focus:not(#passwordInput):not(#passwordRepeatInput) {
     }
 }
 
+
+
+  
+.loading-holder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 60vh;
+  }
+  
+  .loading-text {
+    font-size: 24px;
+    margin-top: 16px;
+    animation: pulse 1s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+  }
+  
+

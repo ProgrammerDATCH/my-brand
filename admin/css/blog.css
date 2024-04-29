@@ -1,0 +1,71 @@
+
+.content{
+    position: relative;
+}
+  .action-img{
+    width: 20px;
+  }
+
+  .edit-popup{
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0,0,0,0.3);
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+  }
+
+  .contents{
+    background-color: #fff;
+    min-width: 400px;
+    position: relative;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+
+  .close-img{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+
+  .action-btns{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .action-btns button{
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .edit-btn{
+    background-color: green;
+    color: white;
+  }
+
+  .edit-blog-btn{
+    background-color: yellow;
+    margin-right: 10px;
+    color: var(--shine-color);
+  }
+
+  .edit-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+  }

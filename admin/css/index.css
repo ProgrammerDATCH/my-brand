@@ -30,6 +30,7 @@
 
 .title{
     margin-top: 40px;
+    color: var(--shine-color);
 }
 
 @media only screen and (max-width: 768px) {

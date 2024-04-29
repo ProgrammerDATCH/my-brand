@@ -8,7 +8,13 @@ const cancelBtnAdd = document.getElementById('cancelBtnAdd');
 closeBtnAdd.addEventListener('click', () => { closePopup(addPopup) })
 cancelBtnAdd.addEventListener('click', () => { closePopup(addPopup) })
 
+let email = ""
 
+
+document.getElementById("mustVerify").addEventListener('click', () =>{
+    localStorage.setItem("emailToVerify", email)
+    window.location.href = "/my-brand/login.html"
+})
 
 function closePopup(element) {
     element.style.display = 'none';
@@ -81,9 +87,15 @@ async function checkToken() {
         if(res.ok) {
             const data = await res.json();
             if (data.status) {
-                document.getElementById("addBlogDiv").style.display = "flex";
-                document.getElementById("nameGreater").innerText = `Hello ${data.message.name}, You can now Add a Blog.`;
+                email = data.message.email;
                 document.getElementById("notLoggedIn").style.display = "none";
+                if(data.message.isVerified){
+                    document.getElementById("addBlogDiv").style.display = "flex";
+                    document.getElementById("nameGreater").innerText = `Hello ${data.message.name}, You can now Add a Blog.`;
+                }
+                else{
+                    document.getElementById("mustVerify").style.display = "flex";
+                }
             }
             else{
                 document.getElementById("addBlogDiv").style.display = "none";

@@ -2,6 +2,16 @@ const serverLink = 'https://mybrandbackend-4e8h.onrender.com/api';
 
 const allBlogs = document.getElementById("allBlogs");
 
+const editPopup = document.getElementById("editPopup");
+
+document.getElementById("cancelBtnEdit").addEventListener("click", ()=>{
+    editPopup.style.display = "none";
+})
+
+document.getElementById("closeBtnEdit").addEventListener("click", ()=>{
+    editPopup.style.display = "none";
+})
+
 const showBlogs = async () => {
     const res = await fetch(`${serverLink}/blog/blogs`);
     if (!res.ok) {
@@ -17,13 +27,51 @@ const showBlogs = async () => {
                 <td>${blog.title}</td>
                 <td>${truncateText(blog.description)}</td>
                 <td class="centerize"><img src="${blog.image}" width="50"></td>
-                <td class="action-btns"><button class="delete-btn" onclick="deleteBlog('${blog._id}')"><i class="fa fa-trash"></i> Delete</button></td>
+                <td class="action-btns">
+                <button class="edit-blog-btn" onclick='showEdit("${blog._id}", "${blog.title}", "${blog.description}")'><i class="fas fa-edit"></i> Edit</button>
+                <button class="delete-btn" onclick="deleteBlog('${blog._id}')"><i class="fa fa-trash"></i> Delete</button></td>
             </tr>
                 `
     });
 }
 
 onload = showBlogs();
+
+const showEdit = (id, title, description) => {
+    document.getElementById("blogId").value = id;
+    document.getElementById("title").value = title;
+    document.getElementById("description").value = description;
+    editPopup.style.display = "flex";
+}
+
+
+
+const editBlog = async() => {
+        const id = document.getElementById("blogId").value;
+        const title = document.getElementById("title").value;
+        const description = document.getElementById("description").value;
+        if(title == "" || description == ""){
+            alert("Please fill all fields")
+            return;
+        }
+        const res = await fetch(`${serverLink}/blog/update`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${getCookie()}`
+        },
+        body: JSON.stringify({id, title, description})
+    });
+    if (!res.ok) {
+        console.log("Send API Failed!");
+    }
+    const result = await res.json();
+    alert(result.message)
+    document.getElementById("blogId").value = "";
+    document.getElementById("title").value = "";
+    document.getElementById("description").value = "";
+    showBlogs();
+}
 
 const deleteBlog = async(id) => {
     const res = await fetch(`${serverLink}/blog/delete`, {

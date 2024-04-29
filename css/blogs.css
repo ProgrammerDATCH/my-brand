@@ -90,14 +90,22 @@ h1{
     box-shadow: 0px 0px 6px var(--shine-color);
 }
 
-.add-blog, #notLoggedIn{
+.add-blog, #notLoggedIn, #mustVerify{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 20px 0;
 }
-
+#notLoggedIn a{
+  text-decoration: none;
+}
+#mustVerify{
+  cursor: pointer;
+}
+#mustVerify h6:hover, #notLoggedIn a:hover{
+  background-color: #3498db;
+}
 .add-popup{
     height: 100vh;
     width: 100%;
@@ -203,6 +211,11 @@ h1{
   #choosenFileSpan{
     align-self: flex-start;
   }
+
+  #mustVerify{
+    display: none;
+  }
+
 
 /* RESPONSIVENESS */
 @media only screen and (min-width: 1024px) {

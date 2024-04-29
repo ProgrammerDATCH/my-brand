@@ -85,6 +85,19 @@ body {
 .title{
     text-align: center;
 }
+
+.loading-holder-td{
+  text-align: center;
+}
+  
+.loading-holder {
+    width: 100%;
+    height: 100px;
+  }
+  .loading-holder img{
+    width: 60px;
+  }
+
 @media only screen and (max-width: 768px) {
     .sidebar {
         width: 100%;

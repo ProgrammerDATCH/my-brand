@@ -7,17 +7,26 @@
     width: 100%;
 }
 
-#registerContainer, #loginContainer {
+#registerContainer, #loginContainer, #verifyContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-#registerContainer > h1, #loginContainer > h1 {
+#registerContainer > h1, #loginContainer > h1, #verifyContainer h1 {
     margin: 20px 0;
     text-align: center;
     font-size: 30px;
+}
+
+
+#registerContainer {
+    display: none;
+}
+
+#verifyContainer {
+    display: none;
 }
 
 form {
@@ -82,9 +91,6 @@ td button:hover {
     color: red;
 }
 
-#registerContainer {
-    display: none;
-}
 
 tr td:nth-child(2) {
     width: 75%;

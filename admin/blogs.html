@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="images/dashboard.png" type="image/x-icon">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="css/users.css">
+    <link rel="stylesheet" href="css/blog.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 </head>
@@ -44,14 +45,39 @@
                     </tr>
                 </thead>
                 <tbody id="allBlogs">
-                   
+                    <tr>
+                        <td colspan="6" class="loading-holder-td">
+                            <div class="loading-holder">
+                                <img src="../images/loading.gif" width="20px" />
+                                <p class="loading-text">Loading...</p>
+                            </div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
-        
 
-        
+
+        <div class="edit-popup" id="editPopup">
+            <div class="contents">
+                <img class="action-img close-img" id="closeBtnEdit" src="./images/close.png" />
+                <h4>Edit</h4>
+                <div id="editForm" class="edit-form">
+                    <input type="hidden" id="blogId" />
+                    <input type="text" id="title" />
+                    <textarea id="description" cols="30" rows="10"></textarea>
+                    <div class="action-btns">
+                        <button class="cancel-btn" id="cancelBtnEdit">Cancel</button>
+                        <button class="edit-btn" id="editBtn" onclick="editBlog()">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
+
+
+
 
     <script src="js/global.js"></script>
     <script src="js/blogs.js"></script>

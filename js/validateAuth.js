@@ -2,16 +2,16 @@
 const serverLink = 'https://mybrandbackend-4e8h.onrender.com/api';
 
 // Login
+const loginContainer = document.getElementById('loginContainer');
 const loginForm = document.getElementById('loginForm');
 const loginEmailInput = document.getElementById('loginEmailInput');
 const loginPasswordInput = document.getElementById('loginPasswordInput');
 const loginErrorSpan = document.getElementById('loginErrorSpan');
 const loginErrorEmail = document.getElementById('loginEmailError');
 const loginErrorPassword = document.getElementById('loginPasswordError');
-const loginContainer = document.getElementById('loginContainer');
-const registerContainer = document.getElementById('registerContainer');
 
 // Register
+const registerContainer = document.getElementById('registerContainer');
 const registerForm = document.getElementById('registerForm');
 const nameInput = document.getElementById('nameInput');
 const emailInput = document.getElementById('emailInput');
@@ -24,7 +24,21 @@ const emailError = document.getElementById('emailError');
 const passwordError = document.getElementById('passwordError');
 const passwordRepeatError = document.getElementById('passwordRepeatError');
 
+//Token
+const verifyContainer = document.getElementById('verifyContainer');
+const verifyForm = document.getElementById('verifyForm');
+const userEmail = document.getElementById('userEmail');
+const emailTokenInput = document.getElementById('emailTokenInput');
+const tokenInput = document.getElementById('tokenInput');
+const tokenErrorSpan = document.getElementById('tokenError');
+const tokenSubmit = document.getElementById('tokenSubmit');
+
+
+
 const allRegisterData = [];
+
+//static
+verifyContainer.style.display = 'none';
 
 // Event listeners
 document.getElementById('showRegister').addEventListener('click', () => {
@@ -37,10 +51,48 @@ document.getElementById('showLogin').addEventListener('click', () => {
 });
 loginForm.addEventListener("submit", (e) => handleLogin(e));
 registerForm.addEventListener("submit", (e) => handleSend(e));
+verifyForm.addEventListener("submit", (e) => handleVerify(e));
 passwordInput.addEventListener("keyup", (e) => checkPassword(e.target.value));
 passwordRepeatInput.addEventListener("keyup", checkPasswordRepeat);
 
 // Functions
+
+async function handleVerify(e) {
+    e.preventDefault();
+    if (tokenInput.value == "") {
+        tokenErrorSpan.innerHTML = '<span class="failed">Enter 6-digits code you received on email please.</span>'
+        return;
+    }
+    if (tokenInput.value.length !== 6) {
+        tokenErrorSpan.innerHTML = '<span class="failed">Token must be 6 digits please.</span>'
+        return;
+    }
+    const data = {
+        token: tokenInput.value,
+        email: emailTokenInput.value
+    }
+    tokenSubmit.innerText = "Verifying..."
+    const { status, message } = await getPostServerResponse("/users/verify", data)
+    tokenSubmit.innerText = "Verify"
+    if (!status) {
+        tokenErrorSpan.innerHTML = `<span class="failed">${message}</span>`
+        return;
+    }
+    tokenErrorSpan.innerHTML = `<span class="success">${message}</span>`;
+    setTimeout(() => {
+        window.location.href = "/my-brand/blogs.html";
+    }, 2000);
+}
+
+
+function showVerifyContainer(email, isFromRegister) {
+    if (isFromRegister) registerContainer.style.display = 'none';
+    else loginContainer.style.display = 'none';
+    emailTokenInput.value = email
+    userEmail.innerText = email
+    verifyContainer.style.display = 'flex';
+}
+
 async function handleLogin(e) {
     e.preventDefault();
     loginErrorEmail.innerText = "";
@@ -72,20 +124,34 @@ async function handleLogin(e) {
         password: loginPasswordInput.value.trim(),
     }
     document.getElementById('userLoginBtn').innerText = "Logging in..."
-    const res = await getPostServerResponse("/users/login", loginData)
-    document.getElementById('userLoginBtn').innerText = "Login"
-    if (!res.status) {
-        loginErrorSpan.innerHTML = `<span class="failed">${res.message}</span>`;
-        return;
+    try {
+        const res = await getPostServerResponse("/users/login", loginData)
+        if (!res.status) {
+            loginErrorSpan.innerHTML = `<span class="failed">${res.message}</span>`;
+            return;
+        }
+        else {
+            document.cookie = `token=${res.message.token}; path=/`;
+            loginEmailInput.value = "";
+            loginPasswordInput.value = "";
+            loginErrorSpan.innerHTML = `<span class="success">${res.message.user.name} Login Successful!</span>`;
+            setTimeout(() => {
+                if (!res.message.user.isVerified) {
+                    showVerifyContainer(res.message.user.email, false)
+                }
+                else window.location.href = "/my-brand/blogs.html";
+            }, 2000);
+        }
     }
-    else {
-        document.cookie = `token=${res.message.token}; path=/`;
-        loginEmailInput.value = "";
-        loginPasswordInput.value = "";
-        loginErrorSpan.innerHTML = `<span class="success">${res.message.user.name} Login Successful!</span>`;
-        setTimeout(() => {
-            window.location.href = "/my-brand/blogs.html";
-        }, 2000);
+    catch (error) {
+        if (error.response && error.response.status === 409) {
+            loginErrorSpan.innerHTML = `<span class="failed">User already exists.</span>`;
+        } else {
+            console.dir(error)
+            loginErrorSpan.innerHTML = `<span class="failed">${error.message}</span>`;
+        }
+    } finally {
+        document.getElementById('userLoginBtn').innerText = "Login";
     }
 
 }
@@ -150,9 +216,8 @@ async function handleSend(e) {
         passwordRepeatInput.value = "";
         passwordInput.classList.remove("valid");
         passwordRepeatInput.classList.remove("valid");
-        setTimeout(()=>{
-            registerContainer.style.display = 'none';
-            loginContainer.style.display = 'flex';
+        setTimeout(() => {
+            showVerifyContainer(res.message.email, true)
         }, 2000)
     }
 }
@@ -213,8 +278,14 @@ async function getPostServerResponse(apiLink, postData) {
         },
         body: JSON.stringify(postData),
     });
-    if (!res.ok) {
-        return false;
-    }
     return await res.json();
+}
+
+onload = ()=> {
+    const emailToVerify = localStorage.getItem('emailToVerify');
+    if(emailToVerify)
+    {
+        showVerifyContainer(emailToVerify, false)
+        localStorage.removeItem("emailToVerify")
+    }
 }

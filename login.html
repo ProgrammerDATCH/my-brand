@@ -69,7 +69,7 @@
             </form>
         </div>
 
-        <div id="registerContainer">
+        <div id="registerContainer" class="defaultHidden">
             <h1>Register</h1>
 
             <form id="registerForm">
@@ -120,6 +120,28 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="bottom-td">Already got an account? <span class="link-text" id="showLogin">Login</span> </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+        <div id="verifyContainer" class="defaultHidden">
+            <h1 >Verify Email</h1>
+            <form id="verifyForm">
+                <input type="hidden" id="emailTokenInput" />
+                <p class="verify-token-h5">Please enter 6-digits token you received on <b><span id="userEmail"></span></b> email.</p>
+                <table>
+                    <tr>
+                        <td>Code:</td>
+                        <td><input type="number" id="tokenInput" placeholder="Enter your code here"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><span id="tokenError"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="for-submit">
+                            <button type="submit" id="tokenSubmit">Verify</button>
+                        </td>
                     </tr>
                 </table>
             </form>
