@@ -4,7 +4,8 @@
     background-color: #fff;
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px var(--shine-color);
+    width: 40%;
 }
 
 .card-content {
@@ -38,5 +39,8 @@
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         gap: 20px;
+    }
+    .card{
+        width: 90%;
     }
 }

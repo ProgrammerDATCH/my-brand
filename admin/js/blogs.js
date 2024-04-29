@@ -28,7 +28,7 @@ const showBlogs = async () => {
                 <td>${truncateText(blog.description)}</td>
                 <td class="centerize"><img src="${blog.image}" width="50"></td>
                 <td class="action-btns">
-                <button class="edit-blog-btn" onclick='showEdit("${blog._id}", "${blog.title}", "${blog.description}")'><i class="fas fa-edit"></i> Edit</button>
+                <button class="edit-blog-btn" style="background-color: #134074;" onclick='showEdit("${blog._id}", "${blog.title}", "${blog.description}")'><i class="fas fa-edit"></i> Edit</button>
                 <button class="delete-btn" onclick="deleteBlog('${blog._id}')"><i class="fa fa-trash"></i> Delete</button></td>
             </tr>
                 `
@@ -54,6 +54,7 @@ const editBlog = async() => {
             alert("Please fill all fields")
             return;
         }
+        document.getElementById("editBtn").innerText = "Updating..."
         const res = await fetch(`${serverLink}/blog/update`, {
         method: 'PATCH',
         headers: {
@@ -62,14 +63,15 @@ const editBlog = async() => {
         },
         body: JSON.stringify({id, title, description})
     });
+    document.getElementById("editBtn").innerText = "Update"
     if (!res.ok) {
         console.log("Send API Failed!");
     }
     const result = await res.json();
-    alert(result.message)
     document.getElementById("blogId").value = "";
     document.getElementById("title").value = "";
     document.getElementById("description").value = "";
+    alert(result.message)
     editPopup.style.display = "none";
     showBlogs();
 }
