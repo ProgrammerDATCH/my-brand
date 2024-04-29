@@ -70,8 +70,16 @@ const editBlog = async() => {
     document.getElementById("blogId").value = "";
     document.getElementById("title").value = "";
     document.getElementById("description").value = "";
+    editPopup.style.display = "none";
     showBlogs();
 }
+
+
+editPopup.addEventListener('click', function (event) {
+    if (event.target === this) {
+        this.style.display = 'none';
+    }
+});
 
 const deleteBlog = async(id) => {
     const res = await fetch(`${serverLink}/blog/delete`, {
